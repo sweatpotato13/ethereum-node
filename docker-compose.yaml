@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  eth:
+    image: ethereum/client-go
+    command: "--ropsten --syncmode 'full'"
+    volumes:
+      - ./chaindata:/root/.ethereum/testnet/geth/chaindata
+    ports:
+      - 8000:8000
+    networks:
+      - test_net
+    container_name: eth
+networks:
+  test_net:
